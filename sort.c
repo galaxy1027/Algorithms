@@ -26,9 +26,38 @@ void bubbleSort(int array[], int size) {
     }
 }
 
+/*
+-- Selection Sort --
+Similar to organizing a hand of cards.
+Start by looking for the minimum value. Once it is found, if it is not in the
+first index, swap it into place.
+Move onto the next element. Find the 2nd smallest element, and make sure it is in
+the 2nd index.
+Loops through to find the nth smallest element to put in the nth index.
+
+Average Time Complexity: O(n^2)
+
+*/
+void selectionSort(int array[], int size) {
+    int i, j, min, temp;
+
+    for (int i = 0; i < size - 1; i++) {
+        min = i;
+        for (int j = i; j < size; j++) {
+            if (array[j] < array[min]) {
+                min = j;
+            }
+        }
+        if(i != min) {
+            int temp = array[i];
+            array[i] = array[min];
+            array[min] = temp;
+        }
+    }
+}
 
 void printArray(int array[], int size) {
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size; i++) {
         printf("%i\t", array[i]);
     }
     printf("\n");
